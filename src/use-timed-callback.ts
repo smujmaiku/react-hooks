@@ -34,12 +34,13 @@ export function useTimedCallback<T = unknown>(callback: UseTimedCallback<T>, use
 				duration: now - previous,
 				userData,
 			}
-			try {
-				ref.current?.(event);
+
+			if (ref.current) {
+				ref.current(event);
 				userData = event.userData;
 				previous = now;
 				count += 1;
-			} finally { }
+			}
 		}
 	}, []);
 }
