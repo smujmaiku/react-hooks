@@ -25,7 +25,7 @@ export function useAnimationFrame<T = unknown>(callback: UseTimedCallback<T>, us
 		return () => {
 			cancel = true;
 		}
-	}, []);
+	}, [timedCallback]);
 }
 
 export default useAnimationFrame;
