@@ -5,6 +5,10 @@ import { UseTimedCallback, useTimedCallback } from './use-timed-callback';
  * Call a function on an animation frames
  * @param callback Callback function
  * @param userDataInit User defined data provied in callback event
+ * @example
+ * useAnimationFrame(({ count }) => {
+ *   console.log(count);
+ * });
  */
 export function useAnimationFrame<T = unknown>(callback: UseTimedCallback<T>, userDataInit = undefined as T) {
 	const ref = useRef(callback);
