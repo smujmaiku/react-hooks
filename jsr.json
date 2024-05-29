@@ -1,5 +1,12 @@
 {
 	"name": "@smujdev/react-timing-hooks",
 	"version": "0.1.1",
-	"exports": "./src/index.ts"
+	"exports": "./src/index.ts",
+	"publish": {
+		"include": [
+			"readme.md",
+			"package.json",
+			"src/**/*.ts"
+		]
+	}
 }
