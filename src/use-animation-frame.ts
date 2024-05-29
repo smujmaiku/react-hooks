@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import { UseTimedCallback, useTimedCallback } from './use-timed-callback';
 
 /**
- * Call a function on an animation frames
+ * Call a function on animation frames
  * @param callback Callback function
  * @param userDataInit User defined data provied in callback event
  * @example
