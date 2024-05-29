@@ -1,5 +1,6 @@
 import { useRef, useMemo } from 'react';
 
+/** Timed callback event Object */
 export interface UseTimedCallbackEventI<T = unknown> {
 	/** First Call */
 	readonly first: boolean;
@@ -17,6 +18,7 @@ export interface UseTimedCallbackEventI<T = unknown> {
 	userData: T;
 }
 
+/** Timed callback function */
 export type UseTimedCallback<T = unknown> = (event: UseTimedCallbackEventI<T>) => void;
 
 /**
@@ -39,7 +41,7 @@ export function useTimedCallback<T = unknown>(callback: UseTimedCallback<T>, use
 		return () => {
 			const now = Date.now();
 			const event = {
-				first: start === previous,
+				first: count === 1,
 				count,
 				start,
 				previous,
