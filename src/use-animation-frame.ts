@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useEffect } from 'react';
 import { UseTimedCallback, useTimedCallback } from './use-timed-callback';
 
 /**
@@ -11,9 +11,6 @@ import { UseTimedCallback, useTimedCallback } from './use-timed-callback';
  * });
  */
 export function useAnimationFrame<T = unknown>(callback: UseTimedCallback<T>, userDataInit = undefined as T): void {
-	const ref = useRef(callback);
-	ref.current = callback;
-
 	const timedCallback = useTimedCallback(callback, userDataInit);
 
 	useEffect(() => {

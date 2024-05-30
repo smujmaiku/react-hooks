@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { UseTimedCallback, useTimedCallback } from './use-timed-callback';
 
 /**
@@ -12,9 +12,6 @@ import { UseTimedCallback, useTimedCallback } from './use-timed-callback';
  * }, 1000);
  */
 export function useInterval<T = unknown>(callback: UseTimedCallback<T>, delay: number, userDataInit = undefined as T): void {
-	const ref = useRef(callback);
-	ref.current = callback;
-
 	const timedCallback = useTimedCallback(callback, userDataInit);
 
 	useEffect(() => {
