@@ -1,4 +1,5 @@
-import { useRef, useMemo } from 'react';
+import { useMemo } from 'react';
+import { useConRef } from '@smujdev/react-more-hooks';
 
 /** Timed callback event Object */
 export interface UseTimedCallbackEventI<T = unknown> {
@@ -32,9 +33,8 @@ export type UseTimedCallback<T = unknown> = (event: UseTimedCallbackEventI<T>) =
  * });
  */
 export function useTimedCallback<T = unknown>(callback: UseTimedCallback<T>, userDataInit = undefined as T): () => void {
-	const ref = useRef(callback);
-	ref.current = callback;
-	const userDataInitRef = useRef(userDataInit);
+	const ref = useConRef(callback);
+	const userDataInitRef = useConRef(userDataInit);
 
 	return useMemo(() => {
 		const start = Date.now();

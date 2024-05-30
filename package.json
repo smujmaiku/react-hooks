@@ -32,5 +32,8 @@
   "devDependencies": {
     "@types/react": "^18.3.3",
     "react": "^18.3.1"
+  },
+  "dependencies": {
+    "@smujdev/react-more-hooks": "npm:@jsr/smujdev__react-more-hooks@^0.1.0"
   }
 }
