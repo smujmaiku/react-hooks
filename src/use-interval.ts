@@ -11,7 +11,7 @@ import { UseTimedCallback, useTimedCallback } from './use-timed-callback';
  *   console.log(count);
  * }, 1000);
  */
-export function useInterval<T = unknown>(callback: UseTimedCallback<T>, delay: number, userDataInit = undefined as T) {
+export function useInterval<T = unknown>(callback: UseTimedCallback<T>, delay: number, userDataInit = undefined as T): void {
 	const ref = useRef(callback);
 	ref.current = callback;
 

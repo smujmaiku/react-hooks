@@ -10,7 +10,7 @@ import { UseTimedCallback, useTimedCallback } from './use-timed-callback';
  *   console.log(count);
  * });
  */
-export function useAnimationFrame<T = unknown>(callback: UseTimedCallback<T>, userDataInit = undefined as T) {
+export function useAnimationFrame<T = unknown>(callback: UseTimedCallback<T>, userDataInit = undefined as T): void {
 	const ref = useRef(callback);
 	ref.current = callback;
 
