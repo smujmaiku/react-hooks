@@ -5,6 +5,16 @@ These are useful from input forms and canvas rendering.
 
 ## Usage
 
+### useAnimationFrame
+
+Call a function on animation frames
+
+```ts
+useAnimationFrame(({ count }) => {
+  console.log(count);
+});
+```
+
 ### useBlink
 
 Flips between true and false on a delay
@@ -25,16 +35,6 @@ useEffect(() => {
 }, [debouncedValue])
 ```
 
-### useAnimationFrame
-
-Call a function on animation frames
-
-```ts
-useAnimationFrame(({ count }) => {
-  console.log(count);
-});
-```
-
 ### useInterval
 
 Call a function on an interval
@@ -48,6 +48,16 @@ useInterval(({ count }) => {
 ### useTimedCallback
 
 Creates a function that tracks time and other useful things in the callback
+
+Callback event includes the following values:
+
+* `first`: True when this is the first call
+* `count`: Callback count
+* `start`: Inital time
+* `previous`: Previous time
+* `now`: Now time
+* `duration`: Duration since last callback
+* `userData`: Mutatable user defined data
 
 ```ts
 const callback = useTimedCallback(({count}) => {
