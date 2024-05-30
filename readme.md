@@ -5,6 +5,14 @@ These are useful from input forms and canvas rendering.
 
 ## Usage
 
+### useBlink
+
+Flips between true and false on a delay
+
+```ts
+const blink = useBlink(500, true);
+```
+
 ### useDebounce
 
 Debounce a value
