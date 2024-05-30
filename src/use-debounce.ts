@@ -7,11 +7,7 @@ import { useEffect, useState } from 'react';
  * @param initialValue Optional initial value 
  * @returns Debounced value
  * @example
- * const [value, setValue] = useState('');
  * const debouncedValue = useDebounce(value, 500);
- * useEffect(() => {
- *   bigFunction(debounceValue);
- * }, [debouncedValue])
  */
 export function useDebounce<T = unknown>(value: T, delay: number, initialValue = undefined as T): T {
 	const [state, setState] = useState(arguments.length > 2 ? initialValue : value);

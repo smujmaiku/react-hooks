@@ -30,9 +30,6 @@ export type UseTimedCallback<T = unknown> = (event: UseTimedCallbackEventI<T>) =
  * const callback = useTimedCallback(({count}) => {
  *   console.log(count);
  * });
- * useEffect(() => {
- *   setInterval(callback, 1000);
- * }, []);
  */
 export function useTimedCallback<T = unknown>(callback: UseTimedCallback<T>, userDataInit = undefined as T): () => void {
 	const ref = useRef(callback);
