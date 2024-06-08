@@ -56,7 +56,7 @@ Callback event includes the following values:
 * `start`: Inital time
 * `previous`: Previous time
 * `now`: Now time
-* `duration`: Duration since last callback
+* `delta`: Duration in ms since last callback
 * `userData`: Mutatable user defined data
 
 ```ts

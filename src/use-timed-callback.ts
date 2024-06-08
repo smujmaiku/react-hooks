@@ -13,8 +13,8 @@ export interface UseTimedCallbackEventI<T = unknown> {
 	readonly previous: number;
 	/** Now Time */
 	readonly now: number;
-	/** Duration since last callback */
-	readonly duration: number;
+	/** delta since last callback */
+	readonly delta: number;
 	/** Mutatable user defined data */
 	userData: T;
 }
@@ -50,7 +50,7 @@ export function useTimedCallback<T = unknown>(callback: UseTimedCallback<T>, use
 				start,
 				previous,
 				now,
-				duration: now - previous,
+				delta: now - previous,
 				userData,
 			}
 
