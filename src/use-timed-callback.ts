@@ -32,7 +32,7 @@ export type UseTimedCallback<T = unknown> = (event: UseTimedCallbackEventI<T>) =
  *   console.log(count);
  * });
  */
-export function useTimedCallback<T = unknown>(callback: UseTimedCallback<T>, userDataInit = undefined as T): () => void {
+export function useTimedCallback<T = unknown>(callback: UseTimedCallback<T>, userDataInit = undefined as T): () => boolean {
 	const ref = useConRef(callback);
 	const userDataInitRef = useConRef(userDataInit);
 
@@ -43,6 +43,8 @@ export function useTimedCallback<T = unknown>(callback: UseTimedCallback<T>, use
 		let userData = userDataInitRef.current;
 
 		return () => {
+			if (!ref.current) return false;
+
 			const now = Date.now();
 			const event = {
 				first: count === 1,
@@ -54,12 +56,15 @@ export function useTimedCallback<T = unknown>(callback: UseTimedCallback<T>, use
 				userData,
 			}
 
-			if (ref.current) {
+			try {
 				ref.current(event);
 				userData = event.userData;
 				previous = now;
 				count += 1;
+			} catch (e) {
+				return false;
 			}
+			return true;
 		}
 	}, []);
 }
